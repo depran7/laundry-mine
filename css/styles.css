@@ -1,0 +1,19 @@
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed !important;
+  z-index: 1;
+  overflow: auto;
+  border-right: 2px solid black;
+}
+
+.content {
+  float: left;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+    /* width: calc(100% - 200px); */
+}
+
+.text-danger {
+  color: red;
+}
