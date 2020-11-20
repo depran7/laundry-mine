@@ -4,24 +4,36 @@
   <ul type="none">
     <li>Cucian</li>
     <ul>
-      <li><a href="/serah-terima/index.php">Serah Terima</a></li>
-      <li><a href="/spesifikasi/index.php">Spesifikasi</a></li>
-      <li><a href="/jenis-linen/index.php">Jenis Linen</a></li>
-      <li><a href="/ruangan/index.php">Ruangan</a></li>
-      <li><a href="/pegawai/index.php">Pegawai</a></li>
+      <?php if (is_roles(['admin', 'penyerahan'])) : ?>
+        <li><a href="/serah-terima/index.php">Serah Terima</a></li>
+      <?php endif ?>
+      <?php if (is_role('admin')) : ?>
+        <li><a href="/spesifikasi/index.php">Spesifikasi</a></li>
+        <li><a href="/jenis-linen/index.php">Jenis Linen</a></li>
+        <li><a href="/ruangan/index.php">Ruangan</a></li>
+        <li><a href="/pegawai/index.php">Pegawai</a></li>
+      <?php endif ?>
     </ul>
-    <li>Barang</li>
-    <ul>
-      <li><a href="/barang-keluar/index.php">Catat Pemakaian Barang</a></li>
-      <li><a href="/barang-masuk/index.php">Catat Barang Masuk</a></li>
-      <li><a href="/barang/index.php">Barang</a></li>
-      <li><a href="/satuan/index.php">Satuan</a></li>
-      <li><a href="/jenis/index.php">Jenis</a></li>
-      <li><a href="/kategori/index.php">Kategori</a></li>
-    </ul>
+    <?php if (!is_role('penyerahan')) : ?>
+      <li>Barang</li>
+      <ul>
+        <li><a href="/barang-keluar/index.php">Catat Pemakaian Barang</a></li>
+        <li><a href="/barang-masuk/index.php">Catat Barang Masuk</a></li>
+        <li><a href="/barang/index.php">Barang</a></li>
+        <?php if (is_role('admin')) : ?>
+          <li><a href="/satuan/index.php">Satuan</a></li>
+          <li><a href="/jenis/index.php">Jenis</a></li>
+          <li><a href="/kategori/index.php">Kategori</a></li>
+        <?php endif ?>
+      </ul>
+    <?php endif ?>
     <br>
     <br>
-    <li><button>Logout</button></li>
+    <li>
+      <form action="/auth/logout.php">
+        <button type="submit">Logout</button>
+      </form>
+    </li>
   </ul>
 
 </div>

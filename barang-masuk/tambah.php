@@ -25,7 +25,6 @@ if (isset($_POST["submit"])) {
 }
 
 $barang = query("SELECT * FROM barang");
-
 ?>
 
 <!DOCTYPE html>

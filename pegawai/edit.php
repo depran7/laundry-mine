@@ -29,6 +29,7 @@ if (isset($_POST["submit"])) {
 		";
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +63,23 @@ if (isset($_POST["submit"])) {
           </td>
           <td>
             <input required type="text" placeholder="Masukkan Nip" id="nip" name="nip" value="<?= $item['nip'] ?>">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="role">role</label>
+          </td>
+          <td>
+            <select name="role" id="role" required>
+              <option value="" disabled selected>Pilih Role</option>
+              <?php foreach ($roles as $role) : ?>
+                <?php if ($item['role'] == $role['id']) : ?>
+                  <option value="<?= $role['id'] ?>" selected><?= $role['name'] ?></option>
+                <?php else : ?>
+                  <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+                <?php endif ?>
+              <?php endforeach ?>
+            </select>
           </td>
         </tr>
       </table>

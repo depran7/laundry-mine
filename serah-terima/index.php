@@ -35,7 +35,9 @@ $serah_terima = query("SELECT
   <!-- Begin Content -->
   <div class="content">
     <h2>Serah Terima</h2>
-    <a href="tambah.php">Tambah Data</a>
+    <?php if (is_role('penyerahan')) : ?>
+      <a href="tambah.php">Tambah Data</a>
+    <?php endif ?>
     <br />
     <br />
 
@@ -60,10 +62,12 @@ $serah_terima = query("SELECT
           <td><?= $data["jumlah_linen"]; ?></td>
           <td>
             <a href="linen/index.php?trs_serah_terima_id=<?= $data["id"]; ?>">Lihat Linen</a>
-            <?php if($data["status"] == NULL || $data["status"] == 0) : ?>
+            <?php if ($data["status"] == NULL || $data["status"] == 0) : ?>
               |
-              <a href="search.php?id=<?= $data["id"]; ?>" onclick="return confirm('yakin?');">Serahkan</a>
-              |
+              <?php if (is_role('admin')) : ?>
+                <a href="serah.php?id=<?= $data["id"]; ?>" onclick="return confirm('yakin?');">Serahkan</a>
+                |
+              <?php endif ?>
               <a href="edit.php?id=<?= $data["id"]; ?>">Edit</a>
               |
               <a href="hapus.php?id=<?= $data["id"]; ?>" onclick="return confirm('yakin?');">hapus</a>

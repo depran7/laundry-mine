@@ -13,7 +13,8 @@ if( isset($_POST["submit"]) ) {
 				alert('data berhasil ditambahkan!');
 				document.location.href = 'index.php';
 			</script>
-		";
+    ";
+    
 	} else {
 		echo "
 			<script>
@@ -22,7 +23,6 @@ if( isset($_POST["submit"]) ) {
 			</script>
 		";
 	}
-
 
 }
 ?>
@@ -42,6 +42,7 @@ if( isset($_POST["submit"]) ) {
   <div class="content">
     <h2>Tambah Pegawai</h2>
     <form action="" method="post">
+      <p class="text-danger">Perhatian: untuk password default itu sama dengan nip, beritahu pegawai agar segera mengganti password nya</p>
       <table>
         <tr>
           <td>
@@ -57,6 +58,22 @@ if( isset($_POST["submit"]) ) {
           </td>
           <td>
             <input required type="text" placeholder="Masukkan Nip" id="nip" name="nip">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="role">role</label>
+          </td>
+          <td>
+            <select name="role" id="role" required>
+              <option value="" disabled selected>Pilih Role</option>
+              <option value="1">Pengambil</option>
+              <option value="2">Pencuci</option>
+              <option value="3">Penyetrika</option>
+              <option value="4">Pendistribusi</option>
+              <option value="5">Admin</option>
+              <option value="6">Penyerahan</option>
+            </select>
           </td>
         </tr>
       </table>

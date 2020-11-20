@@ -20,10 +20,10 @@ $pegawai = query("SELECT * FROM pegawai");
   <!-- Begin Content -->
   <div class="content">
     <h2>Daftar Pegawai</h2>
+    <p class="text-danger">Perhatian: untuk password default itu sama dengan nip, beritahu pegawai agar segera mengganti password nya</p>
     <a href="tambah.php">Tambah Data</a>
     <br />
     <br />
-
     <table border="1">
       <tr>
         <th>No</th>
@@ -38,7 +38,10 @@ $pegawai = query("SELECT * FROM pegawai");
           <td><?= $data["nama"]; ?></td>
           <td><?= $data["nip"]; ?></td>
           <td>
+            <a href="reset_password.php?id=<?= $data["id"]; ?>"  onclick="return confirm('apakah anda yakin untuk mereset password <?= $data["nama"]; ?>?');">Reset password</a>
+            |
             <a href="edit.php?id=<?= $data["id"]; ?>">Edit</a>
+            |
             <a href="hapus.php?id=<?= $data["id"]; ?>"  onclick="return confirm('yakin?');">hapus</a>
           </td>
         </tr>

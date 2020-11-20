@@ -1,4 +1,16 @@
-<?php $title = 'Laundry App' ?>
+<?php 
+session_start();
+
+require_once('koneksi.php');
+
+$title = 'Laundry App';
+
+//cek apakah sudah login atau belum
+if(!isset($_SESSION['loggedin'])){
+  header("Location: auth/login.php");
+}
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +24,7 @@
   <?php include('sidebar.php') ?>
 
   <div class="content">
-    <h2>Selamat Datang</h2>
+    <h2>Selamat Datang <?= $_SESSION['user']['nama'] ?></h2>
   </div>
 
 </body>
