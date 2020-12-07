@@ -55,7 +55,7 @@ function ubah($data)
   return mysqli_affected_rows($conn);
 }
 
-function search($id)
+function serah($id)
 {
   global $conn;
   global $nama_table;
@@ -77,14 +77,17 @@ function status($data)
 {
   switch ($data) {
     case 1:
-      return 'Telah diserahkan';
-    
+      return 'Telah diserahkan ke laundry';
+
     case 2:
       return 'Telah dicucikan';
-    
+
     case 3:
       return 'Telah didistribusi';
-      
+
+    case 4:
+      return 'Telah diserahkan ke ruangan';
+
     default:
       return 'Belum';
   }

@@ -3,7 +3,7 @@ require 'functions.php';
 
 $id = $_GET["id"];
 
-if( search($id) > 0 ) {
+if( serah($id) > 0 ) {
 	echo "
 		<script>
 			alert('data berhasil diserahkan!');
