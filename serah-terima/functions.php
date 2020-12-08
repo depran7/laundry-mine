@@ -55,14 +55,56 @@ function ubah($data)
   return mysqli_affected_rows($conn);
 }
 
-function serah($id)
+function tetapkan_pegawai($data)
+{
+  global $conn;
+  global $nama_table;
+
+  $id = htmlspecialchars($data["id"]);
+  $petugas_pengambil = htmlspecialchars($data["petugas_pengambil"]);
+  $petugas_pencuci = htmlspecialchars($data["petugas_pencuci"]);
+  $petugas_penyetrika = htmlspecialchars($data["petugas_penyetrika"]);
+  $petugas_pendistribusi = htmlspecialchars($data["petugas_pendistribusi"]);
+
+  $query = "UPDATE $nama_table SET
+              petugas_pengambil = '$petugas_pengambil',
+              petugas_pencuci = '$petugas_pencuci',
+              petugas_penyetrika = '$petugas_penyetrika',
+              petugas_pendistribusi = '$petugas_pendistribusi',
+              updated_at = CURRENT_TIMESTAMP
+            WHERE id = '$id'
+  ";
+
+  mysqli_query($conn, $query);
+
+  return mysqli_affected_rows($conn);
+}
+
+function serah_ke_laundry($id)
 {
   global $conn;
   global $nama_table;
 
   $query = "UPDATE $nama_table SET
-              tanggal_pengiriman = CURRENT_TIMESTAMP,
+              tanggal_pengiriman_ruangan = CURRENT_TIMESTAMP,
               status = 1,
+              updated_at = CURRENT_TIMESTAMP
+            WHERE id = '$id'
+  ";
+
+  mysqli_query($conn, $query);
+
+  return mysqli_affected_rows($conn);
+}
+
+function serah_ke_ruangan($id)
+{
+  global $conn;
+  global $nama_table;
+
+  $query = "UPDATE $nama_table SET
+              status = 4,
+              tanggal_pengiriman_laundry = CURRENT_TIMESTAMP,
               updated_at = CURRENT_TIMESTAMP
             WHERE id = '$id'
   ";

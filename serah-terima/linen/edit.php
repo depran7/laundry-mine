@@ -75,7 +75,7 @@ $item = query("SELECT * FROM linen WHERE id = $id")[0];
             <select required name="spesifikasi_id" id="spesifikasi_linen">
               <option value="" disabled selected>Pilih Spesifikasi Linen</option>
               <?php foreach ($spesifikasi as $s) : ?>
-                <?php if ($s['id'] == $item['jenis_linen_id']) : ?>
+                <?php if ($s['id'] == $item['spesifikasi_id']) : ?>
                   <option value="<?= $s['id'] ?>" selected><?= $s['nama'] ?></option>
                 <?php else : ?>
                   <option value="<?= $s['id'] ?>"><?= $s['nama'] ?></option>
@@ -104,11 +104,11 @@ $item = query("SELECT * FROM linen WHERE id = $id")[0];
         </tr>
 
         <tr>
-          <td>
+          <td style="vertical-align: top;">
             <label for="keterangan">Keterangan</label>
           </td>
           <td>
-            <input required type="text" placeholder="Masukkan keterangan" id="keterangan" name="keterangan" value="<?= $item['keterangan'] ?>">
+            <textarea name="keterangan" id="keterangan" cols="30" rows="4" placeholder="Masukkan keterangan"><?= $item['keterangan'] ?></textarea>
           </td>
         </tr>
 

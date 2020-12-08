@@ -55,14 +55,6 @@ $ruangan = query("SELECT * FROM ruangan");
             </select>
           </td>
         </tr>
-        <!-- <tr>
-          <td>
-            <label for="tanggal_pengiriman">Tanggal Pengiriman</label>
-          </td>
-          <td>
-            <input required type="date" id="tanggal_pengiriman" name="tanggal_pengiriman">
-          </td>
-        </tr> -->
       </table>
       <br>
       <button type="submit" name="submit">Simpan Data</button>

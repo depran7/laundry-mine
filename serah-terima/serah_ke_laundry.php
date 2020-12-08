@@ -3,7 +3,7 @@ require 'functions.php';
 
 $id = $_GET["id"];
 
-if( serah($id) > 0 ) {
+if( serah_ke_laundry($id) > 0 ) {
 	echo "
 		<script>
 			alert('data berhasil diserahkan!');

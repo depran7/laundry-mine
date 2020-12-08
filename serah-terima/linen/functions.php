@@ -49,19 +49,47 @@ function ubah($data)
   $jumlah = htmlspecialchars($data["jumlah"]);
   $keterangan = htmlspecialchars($data["keterangan"]);
 
-
   $query = "UPDATE $nama_table SET
               trs_serah_terima_id = $trs_serah_terima_id,
               jenis_linen_id = $jenis_linen_id,
               spesifikasi_id = $spesifikasi_id,
               hitung_lidi = $hitung_lidi,
               jumlah = $jumlah,
-              keterangan = $keterangan,
+              keterangan = '$keterangan',
               updated_at = CURRENT_TIMESTAMP
             WHERE id = '$id'
   ";
 
   mysqli_query($conn, $query);
   
+  // var_dump(mysqli_affected_rows($conn));
+  // die;
+  return mysqli_affected_rows($conn);
+}
+
+function ubah_jumlah($data)
+{
+  global $conn;
+  global $nama_table;
+
+  $id = htmlspecialchars($data["id"]);
+  $trs_serah_terima_id = htmlspecialchars($data["trs_serah_terima_id"]);
+  $hitung_lidi_laundry = htmlspecialchars($data["hitung_lidi_laundry"]);
+  $jumlah_laundry = htmlspecialchars($data["jumlah_laundry"]);
+  $keterangan_laundry = htmlspecialchars($data["keterangan_laundry"]);
+
+  $query = "UPDATE $nama_table SET
+              trs_serah_terima_id = $trs_serah_terima_id,
+              hitung_lidi_laundry = $hitung_lidi_laundry,
+              jumlah_laundry = $jumlah_laundry,
+              keterangan_laundry = '$keterangan_laundry',
+              updated_at = CURRENT_TIMESTAMP
+            WHERE id = '$id'
+  ";
+
+  mysqli_query($conn, $query);
+  
+  // var_dump(mysqli_affected_rows($conn));
+  // die;
   return mysqli_affected_rows($conn);
 }
