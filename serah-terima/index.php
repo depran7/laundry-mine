@@ -95,6 +95,9 @@ $serah_terima = query($query_utama);
                 <a href="serah_ke_ruangan.php?id=<?= $data["id"]; ?>" onclick="return confirm('Apa anda yakin untuk menyerahkan kembali ke ruangan? pastikan anda telah pegawai yang ditetapkan, hitung lidi dan jumlah linen nya sesuai');">Serahkan</a>
                 |
                 <a href="tetapkan_pegawai.php?id=<?= $data["id"]; ?>">Tetapkan Pegawai</a>
+              <?php else : ?>
+                |
+                <a href="lihat_pegawai.php?id=<?= $data["id"]; ?>">Lihat Pegawai</a>
               <?php endif ?>
             <?php else : ?>
               <!-- JIKA BUKAN ADMIN (RUANGAN) MAKA CEK APAKAH SUDAH DISERAHKAN KE LAUNDRY? -->

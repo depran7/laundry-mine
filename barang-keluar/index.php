@@ -3,12 +3,12 @@ $title = 'Catat Pemakaian Barang';
 
 require 'functions.php';
 $barang = query("SELECT 
-                  tbm.id, b.nama, tbm.jumlah_barang, b.created_at
+                  tpb.id, b.nama, tpb.jumlah_barang, tpb.created_at
                 FROM 
-                  trs_pemakaian_barang as tbm,
+                  trs_pemakaian_barang as tpb,
                   barang as b
                 WHERE
-                  tbm.barang_id = b.id
+                  tpb.barang_id = b.id
           ");
 
 ?>

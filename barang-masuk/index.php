@@ -3,7 +3,8 @@ $title = 'Catat Barang Masuk';
 
 require 'functions.php';
 $barang = query("SELECT 
-                  tbm.id, b.nama, tbm.jumlah_barang, b.created_at
+                  tbm.id, tbm.jumlah_barang, tbm.created_at,
+                  b.nama
                 FROM 
                   trs_barang_masuk as tbm,
                   barang as b
