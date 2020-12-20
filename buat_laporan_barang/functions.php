@@ -88,11 +88,12 @@ function getData($year, $month)
   * - pemakaian barang
   * - pemasukan barang 
   */
+  $tempValue = [];
   foreach ($barang as $key => $value) {
     $tempValue[] = $value; //menampung data barang kedalam data sementara (agar data yang dimanipluasi adalah data yang sementara)
 
     //set nilai default stock awal pada brang ke $key menjadi 0;
-    $tempValue[$key]['stock_awal'] = 0; 
+    $tempValue[$key]['stock_awal'] = 0;
 
     //mencari data stockawal sesuai dengan barang yang ada di $key
     foreach ($stockAwal as $valueSA) {
