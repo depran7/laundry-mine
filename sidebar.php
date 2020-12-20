@@ -1,8 +1,8 @@
-<h1><a href="/">Laundry App</a></h1>
-
 <div class="sidebar">
+  <h1><a href="/">Laundry App</a></h1>
+
   <ul type="none">
-    <li>Cucian</li>
+    <li class="menu_utama">Cucian</li>
     <ul>
       <?php if (is_role('admin')) : ?>
         <li><a href="/buat_laporan_cucian/index.php">Buat Laporan</a></li>
@@ -16,7 +16,7 @@
       <?php endif ?>
     </ul>
     <?php if (is_role('admin')) : ?>
-      <li>Barang</li>
+      <li class="menu_utama">Barang</li>
       <ul>
         <li><a href="/buat_laporan_barang/index.php">Buat Laporan</a></li>
         <li><a href="/barang-keluar/index.php">Catat Pemakaian Barang</a></li>

@@ -1,19 +1,54 @@
+body {
+  font-family: Nunito, Arial, Helvetica, sans-serif;
+  background-color: #F5F3EF;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .sidebar {
+  padding: 24px;
   height: 100%;
   width: 200px;
+  background-color: #6A75CA;
   position: fixed !important;
   z-index: 1;
   overflow: auto;
-  border-right: 2px solid black;
+  /* border-right: 2px solid black; */
+}
+h1 a {
+  color: white;
+}
+.sidebar ul li a {
+  color: white;
+}
+
+.sidebar ul ul {
+  padding-left: 16px;
 }
 
 .content {
   float: left;
   width: calc(100% - 250px);
   margin-left: 250px;
-    /* width: calc(100% - 200px); */
+  padding: 30px;
+  box-sizing: border-box;
+  /* width: calc(100% - 200px); */
+}
+
+button {
+  background-color: #51CBCE;
+  padding: 8px;
 }
 
 .text-danger {
   color: red;
+}
+
+.menu_utama {
+  padding-top: 21px;
+  color: yellow;
+  font-weight: bold;
 }
